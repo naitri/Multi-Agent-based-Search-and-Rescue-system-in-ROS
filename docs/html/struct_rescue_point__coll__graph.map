@@ -1,0 +1,4 @@
+<map id="RescuePoint" name="RescuePoint">
+<area shape="rect" id="node1" title="Structure to store waypoint and associated nearest fire exit." alt="" coords="5,109,108,136"/>
+<area shape="rect" id="node2" href="$struct_pose.html" title="Structure to store waypoints in ROS format x, y, z &#45; positions roll, pitch, yaw &#45; euler angles qx,..." alt="" coords="30,5,83,32"/>
+</map>
