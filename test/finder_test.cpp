@@ -1,15 +1,50 @@
+/******************************************************************************
+ * MIT License
+ * 
+ * Copyright (c) 2021 Mayank Joshi, Naitri Rajyaguru
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE. 
+ ******************************************************************************/
+
+/**
+ * @file finder_test.cpp
+ * @author Phase 2 - Mayank Joshi (driver) and Naitri Rajyaguru (navigator)
+ * @brief unit test
+ * @version 0.1
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include <ros/ros.h>
 #include <gtest/gtest.h>
+#include <image_transport/image_transport.h>
+#include <cv_bridge/cv_bridge.h>
+#include <actionlib/client/simple_action_client.h>
 
 #include <memory>
 
 #include <project_finder/Navigation.hpp>
-#include <actionlib/client/simple_action_client.h>
+
 #include <project_finder/FinderBot.hpp>
 #include <project_finder/Detector.hpp>
 #include <project_finder/Pose.hpp>
-#include <image_transport/image_transport.h>
-#include <cv_bridge/cv_bridge.h>
 
 
 double conf = 0.41;
@@ -29,7 +64,7 @@ TEST(Detector, structure) {
     ASSERT_EQ(temp_object.confidence, 0.4);
     ASSERT_EQ(temp_object.name, class_name);
 }
- 
+
 cv::Mat img_callback(const sensor_msgs::ImageConstPtr& img_msg) {
     cv::Mat opencv_img_;
     cv_bridge::CvImagePtr cv_ptr;
@@ -38,11 +73,12 @@ cv::Mat img_callback(const sensor_msgs::ImageConstPtr& img_msg) {
         opencv_img_ = cv_ptr->image;
     }
     return opencv_img_;
-} 
+}
 
 TEST(SubscriberTest, testSubscribeMethod) {
     image_transport::ImageTransport it(*nh);
-    image_transport::Subscriber img_sub_ = it.subscribe("/camera/rgb/image_raw",1,&img_callback);
+    image_transport::Subscriber img_sub_ =
+    it.subscribe("/camera/rgb/image_raw", 1, &img_callback);
     ASSERT_TRUE(img_sub_);
 }
 
