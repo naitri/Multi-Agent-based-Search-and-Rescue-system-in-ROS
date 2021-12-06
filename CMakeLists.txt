@@ -116,7 +116,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES Project_Finder
+  LIBRARIES project_finder
 #  CATKIN_DEPENDS roscpp std_msgs tf
 #  DEPENDS system_lib
 )
@@ -134,8 +134,24 @@ include_directories(
 )
 
 
-
-
 add_executable(finder src/main.cpp src/Detector.cpp src/FinderBot.cpp src/Navigation.cpp)
 target_link_libraries(finder ${catkin_LIBRARIES})
 target_link_libraries(finder ${OpenCV_LIBRARIES})
+
+
+# Add rostest gtest 
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+  add_rostest_gtest(
+  finder_test
+  test/finder_test.test
+  test/finder_test.cpp
+  src/Detector
+  src/FinderBot.cpp
+  src/Navigation.cpp
+  )
+  target_link_libraries(finder_test ${catkin_LIBRARIES} )
+  target_link_libraries(finder_test ${OpenCV_LIBRARIES})
+
+  add_dependencies( finder_test finder ${catkin_EXPORTED_TARGETS} )
+endif()
