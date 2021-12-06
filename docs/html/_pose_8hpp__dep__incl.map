@@ -1,0 +1,10 @@
+<map id="include/project_finder/Pose.hpp" name="include/project_finder/Pose.hpp">
+<area shape="rect" id="node1" title="structure for Pose" alt="" coords="183,5,346,47"/>
+<area shape="rect" id="node2" href="$_finder_bot_8hpp.html" title="class declaration for FinderBot" alt="" coords="243,184,406,225"/>
+<area shape="rect" id="node5" href="$finder__test_8cpp.html" title="unit test" alt="" coords="78,273,226,300"/>
+<area shape="rect" id="node6" href="$_navigation_8hpp.html" title="Navigation class declaration for Project Finder." alt="" coords="124,95,287,136"/>
+<area shape="rect" id="node8" href="$_rescue_point_8hpp.html" title="structure for RescuePoint" alt="" coords="362,95,524,136"/>
+<area shape="rect" id="node3" href="$_finder_bot_8cpp.html" title="class definition for FinderBot class" alt="" coords="251,273,384,300"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="main" alt="" coords="409,273,514,300"/>
+<area shape="rect" id="node7" href="$_navigation_8cpp.html" title="class definition for Navigation class" alt="" coords="25,191,168,218"/>
+</map>

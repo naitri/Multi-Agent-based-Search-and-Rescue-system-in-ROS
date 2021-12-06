@@ -30,3 +30,19 @@ Firefighters  all  over  the  world,  put  the  safety  of others  before  their
 ## Development Process
 Following the Agile Iterative Process for Development, we switch roles of driver and navigator. Product backlog, iteration backlog and worklog can be found [here](https://docs.google.com/spreadsheets/d/1rBFfK4g2CC1IsPqGAZWokGkGCv19n7TvAoxRm0TySUQ/edit?usp=sharing) and Sprint planning with review notes can be found [here](https://docs.google.com/document/d/1XgyItVMLgMgZYTeKPQwQybjKTmsq5tjbA4Ds0ETw-6w/edit?usp=sharing)
 
+## World
+* We created a custom gazebo world which could simulate the requirements for our project
+![image](https://github.com/mjoshi07/project_finder/blob/dev_phase2/data/gazebo_world.png)
+* For the custom world, we also generated a binary occupancy grid, loaded in rviz
+![image](https://github.com/mjoshi07/project_finder/blob/dev_phase2/data/rviz_map.png)
+* Generated map can be found [here](https://github.com/mjoshi07/project_finder/blob/dev_phase2/maps/)
+
+## Static Code analysis
+* Cppcheck results can be found [here](https://github.com/mjoshi07/project_finder/blob/dev_phase2/results/cppcheck.txt)
+* Cpplint results can be found [here](https://github.com/mjoshi07/project_finder/blob/dev_phase2/results/cpplint.txt)
+
+## TODO after phase 2
+* spawn humans at the waypoints
+* fix map inversion when loading in rviz
+* action_server not returning true sometimes even after reaching the goal
+* add more unit test cases
