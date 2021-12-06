@@ -23,7 +23,7 @@
  ******************************************************************************/
 
 /**
- * @file Detector.cpp
+ * @file main.cpp
  * @author Phase 2 - Mayank Joshi (driver) and Naitri Rajyaguru (navigator)
  * @brief main
  * @version 0.1
@@ -32,15 +32,24 @@
  * 
  */
 
-
-#include <Project_Finder/Detector.hpp>
+#include <project_finder/Detector.hpp>
+#include <project_finder/FinderBot.hpp>
+#include <project_finder/RescuePoint.hpp>
 
 
 int main(int argc, char** argv) {
-    double conf = 0.4;
-    std::vector<std::string> classes_to_detect = {"person"};
+    ros::init(argc, argv, "finder_bot");
 
-    acme::Detector detector_object(conf, classes_to_detect);
-    
+    std::vector<RescuePoint> rescue_points =
+    {RescuePoint(Pose(1, 2), Pose(0, 0)),
+                                    RescuePoint(Pose(2, 3), Pose(1, 1))};
+
+    ros::NodeHandle nh;
+    FinderBot bot(nh);
+    bot.set_rescue_points(rescue_points);
+
+    bot.start_rescuing();
+
     return 0;
 }
+
