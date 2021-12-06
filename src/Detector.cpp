@@ -33,7 +33,7 @@
  */
 
 
-#include <Project_Finder/Detector.hpp>
+#include <project_finder/Detector.hpp>
 #include <ros/package.h>
 
 
@@ -170,7 +170,7 @@ void acme::Detector::InitModel(double conf, const std::vector<std::string> &c) {
       "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase",
       "scissors", "teddy bear", "hair drier", "toothbrush" };
 
-    std::string ros_path = ros::package::getPath("Project_Finder");
+    std::string ros_path = ros::package::getPath("project_finder");
 
     /// set weights file path
     std::string weights_path = ros_path + "//data//yolov4-tiny.weights";
