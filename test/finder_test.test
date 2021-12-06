@@ -1,0 +1,5 @@
+<launch>
+
+<test test-name="finder_test" pkg="project_finder" type="finder_test"/>
+
+</launch>
