@@ -43,7 +43,7 @@ Following the Agile Iterative Process for Development, we switch roles of driver
 
 ## Installation
 
-# Install TurtleBot3
+### Install TurtleBot3
 ```
 cd ~/finderbot_ws/src
 git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git -b noetic-devel
@@ -53,13 +53,13 @@ cd ~/finderbot_ws
 catkin_make
 source devel/setup.bash
 ```
-# Clone git repository
+### Clone git repository
 ```
 cd finderbot_ws/src
 git clone --recursive https://github.com/naitri/project_finder
 ```
 
-# Execution of code
+### Execution of code
 ```
 cd ~/finderbot_ws/src
 catkin_make
@@ -73,6 +73,8 @@ In terminal 2
 ```
 rosrun project_finder finder
 ```
+### Result
+
 
 
 
