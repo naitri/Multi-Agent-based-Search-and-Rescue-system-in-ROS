@@ -38,18 +38,7 @@
 #include <iostream>
 #include <memory>
 
-#include <actionlib/client/simple_action_client.h>
-#include <move_base_msgs/MoveBaseAction.h>
-#include <sensor_msgs/Image.h>
-#include <cv_bridge/cv_bridge.h>
-
 #include <project_finder/Pose.hpp>
-#include <project_finder/RescuePoint.hpp>
-#include <project_finder/Navigation.hpp>
-#include <project_finder/Detector.hpp>
-
-
-#include <opencv4/opencv2/opencv.hpp>
 
 
 /**
@@ -63,54 +52,42 @@ class FinderBot {
  /**
   * @brief Construct a new Finder Bot object
   * 
-  * @param nh 
+  * @param ns
   */
-    explicit FinderBot(ros::NodeHandle& nh);
+    explicit FinderBot(const std::string& ns);
 
     /**
      * @brief Destroy the Finder Bot object
      * 
      */
     ~FinderBot();
-
-    /**
-     * @brief entry point method for finder bot
-     * 
-     */
-    void start_rescuing();
-
-    /**
-     * @brief Set the rescue points object
-     * 
-     * @param rescue_points 
-     */
-    void set_rescue_points(std::vector<RescuePoint>& rescue_points);
-
- private:
- /**
-  * @brief Calls Detect method of Detector class for human detection
-  * 
-  * @return true, if human detected
-  * @return false, if human not detected 
-  */
-    bool detect_human();
-
-    /**
-     * @brief subscribes to camera topic and converts ros img to opencv img
-     * 
-     * @param img_msg 
-     */
-    void img_callback(const sensor_msgs::ImageConstPtr& img_msg);
+   
+   std::string get_namespace();
+   void set_waypoint(Pose waypoint);
+   void set_fire_exit(Pose fire_exit);
+   Pose get_waypoint();
+   Pose get_fire_exit();
+   void update_destination(Pose dest);
+   Pose get_destination();
+   void set_send_goal_state(bool send_goal);
+   bool get_send_goal_state();
+   void set_mission_status(bool status);
+   bool get_mission_status();
+   void set_home_location(Pose home_sweet_home);
+   Pose get_home_location();
+   void increment_mission_count();
+   int get_mission_count();
 
  private:
-    ros::NodeHandle nh_;
-    cv::Mat opencv_img_;
-    std::vector<RescuePoint> rescue_points_;
-    std::string camera_topic_;
-    Navigation navigate_;
-    std::unique_ptr<acme::Detector> human_detector_;
-    ros::Subscriber img_sub_;
-
+   std::string namespace_;
+   Pose waypoint_;
+   Pose fire_exit_;
+   Pose destination_;
+   bool send_goal_state_;
+   bool mission_accomplished_;
+   Pose home_location_;
+   int mission_count_;
+   
 };
 
 #endif  // INCLUDE_FINDERBOT_HPP_
