@@ -24,7 +24,8 @@
 
 /**
  * @file Navigation.hpp
- * @author Phase 2 - Mayank Joshi (driver) and Naitri Rajyaguru (navigator)
+ * @author Mayank Joshi
+ * @author Naitri Rajyaguru
  * @brief Navigation class declaration for Project Finder
  * @version 0.1
  * 
@@ -46,8 +47,6 @@
 #include <project_finder/Pose.hpp>
 #include <project_finder/FinderBot.hpp>
 #include <project_finder/Detector.hpp>
-
-
 
 
 
@@ -74,28 +73,68 @@ class Navigation {
     ~Navigation();
 
    /**
-    * @brief calls sendGoal method of MoveBaseClient
+    * @brief moves all the robots to the desired location
     * 
-    * @param dest_location 
-    * @return true 
-    * @return false 
     */
     void move_bots();
+
+    /**
+     * @brief Get the destination goal object
+     * 
+     * @param robot 
+     * @return move_base_msgs::MoveBaseGoal 
+     */
     static move_base_msgs::MoveBaseGoal get_destination_goal(
       std::shared_ptr<FinderBot>& robot);
 
  private:
+ /**
+  * @brief initialize move base client for all 20 robots
+  * 
+  * @param robot shared pointer to the FinderBot
+  * @param robot_client unique pointer to the respective robot move base client
+  */
   void initialize_client(std::shared_ptr<FinderBot>& robot,
   std::unique_ptr<MoveBaseClient>& robot_client);
+
+  /**
+   * @brief detects human after reaching waypoint
+   * 
+   * @return true 
+   * @return false 
+   */
    bool detect_human();
+
+   /**
+    * @brief check robot status and updates its destination
+    * 
+    * @param robot_client unique pointer to the respective robot move base client
+    * @param robot shared pointer to the FinderBot
+    */
    void update_robot(std::unique_ptr<MoveBaseClient>& robot_client,
     std::shared_ptr<FinderBot>& robot);
+
+    /**
+     * @brief send goal to the FinderBot according to its set destination
+     * 
+     * @param robot_client unique pointer to the respective robot move base client
+     * @param robot shared pointer to the FinderBot
+     * @param robot_goal 
+     */
    void send_goal(std::unique_ptr<MoveBaseClient>& robot_client,
     std::shared_ptr<FinderBot>& robot,  
     move_base_msgs::MoveBaseGoal& robot_goal);
+
+    /**
+     * @brief stops the execution if all robots have completed their tasks
+     * 
+     * @return true 
+     * @return false 
+     */
    bool mission_impossible_complete();
 
  private:
+  // variables to store robots 1-20
   std::shared_ptr<FinderBot> robot1_;
   std::shared_ptr<FinderBot> robot2_;
   std::shared_ptr<FinderBot> robot3_;
@@ -117,6 +156,7 @@ class Navigation {
   std::shared_ptr<FinderBot> robot19_;
   std::shared_ptr<FinderBot> robot20_;
 
+  // variables to store robots move base client 1-20
   std::unique_ptr<MoveBaseClient> robot1_client_;
   std::unique_ptr<MoveBaseClient> robot2_client_;
   std::unique_ptr<MoveBaseClient> robot3_client_;
@@ -138,8 +178,9 @@ class Navigation {
   std::unique_ptr<MoveBaseClient> robot19_client_;
   std::unique_ptr<MoveBaseClient> robot20_client_;
 
+  // unique pointer to Detector object
   std::unique_ptr<acme::Detector> detector_;
-  
+
   ros::NodeHandle nh_;
   cv::Mat opencv_img_;
 };
