@@ -24,7 +24,8 @@
 
 /**
  * @file FinderBot.hpp
- * @author Phase 2 - Mayank Joshi (driver) and Naitri Rajyaguru (navigator)
+ * @author Mayank Joshi
+ * @author Naitri Rajyaguru
  * @brief class declaration for FinderBot
  * @version 0.1
  * 
@@ -32,24 +33,13 @@
  * 
  */
 
-#ifndef INCLUDE_FINDERBOT_HPP_
-#define INCLUDE_FINDERBOT_HPP_
+#ifndef INCLUDE_PROJECT_FINDER_FINDERBOT_HPP_
+#define INCLUDE_PROJECT_FINDER_FINDERBOT_HPP_
 
 #include <iostream>
 #include <memory>
-
-#include <actionlib/client/simple_action_client.h>
-#include <move_base_msgs/MoveBaseAction.h>
-#include <sensor_msgs/Image.h>
-#include <cv_bridge/cv_bridge.h>
-
+#include <string>
 #include <project_finder/Pose.hpp>
-#include <project_finder/RescuePoint.hpp>
-#include <project_finder/Navigation.hpp>
-#include <project_finder/Detector.hpp>
-
-
-#include <opencv4/opencv2/opencv.hpp>
 
 
 /**
@@ -58,59 +48,133 @@
  * 
  */
 class FinderBot {
-
  public:
  /**
   * @brief Construct a new Finder Bot object
   * 
-  * @param nh 
+  * @param ns
   */
-    explicit FinderBot(ros::NodeHandle& nh);
-
-    /**
+    explicit FinderBot(const std::string& ns);
+  /**
      * @brief Destroy the Finder Bot object
      * 
      */
     ~FinderBot();
-
+  /**
+    * @brief Get the namespace object
+    * 
+    * @return std::string 
+    */
+  std::string get_namespace();
+  /**
+    * @brief Set the waypoint object
+    * 
+    * @param waypoint 
+    */
+  void set_waypoint(Pose waypoint);
+  /**
+    * @brief Set the fire exit object
+    * 
+    * @param fire_exit 
+    */
+  void set_fire_exit(Pose fire_exit);
+  /**
+    * @brief Get the waypoint object
+    * 
+    * @return Pose 
+    */
+  Pose get_waypoint();
+  /**
+    * @brief Get the fire exit object
+    * 
+    * @return Pose 
+    */
+  Pose get_fire_exit();
+  /**
+   * @brief udpate destination of the robot
+    * 
+    * @param dest 
+    */
+  void update_destination(Pose dest);
+  /**
+    * @brief Get the destination object
+    * 
+    * @return Pose 
+    */
+  Pose get_destination();
+  /**
+    * @brief Set the send goal state object
+    * 
+    * @param send_goal 
+    */
+  void set_send_goal_state(bool send_goal);
+  /**
+    * @brief Get the send goal state object
+    * 
+    * @return true 
+    * @return false 
+    */
+  bool get_send_goal_state();
+  /**
+    * @brief Set the mission status object
+    * 
+    * @param status 
+    */
+  void set_mission_status(bool status);
+  /**
+    * @brief Get the mission status object
+    * 
+    * @return true 
+    * @return false 
+    */
+  bool get_mission_status();
+  /**
+    * @brief Set the home location object
+    * 
+    * @param home_sweet_home 
+    */
+  void set_home_location(Pose home_sweet_home);
     /**
-     * @brief entry point method for finder bot
-     * 
-     */
-    void start_rescuing();
-
-    /**
-     * @brief Set the rescue points object
-     * 
-     * @param rescue_points 
-     */
-    void set_rescue_points(std::vector<RescuePoint>& rescue_points);
+    * @brief Get the home location object
+    * 
+    * @return Pose 
+    */
+  Pose get_home_location();
+  /**
+    * @brief increase robot mission completed count
+    * 
+    */
+  void increment_mission_count();
+  /**
+    * @brief Get the mission count object
+    * 
+    * @return int 
+    */
+  int get_mission_count();
 
  private:
- /**
-  * @brief Calls Detect method of Detector class for human detection
-  * 
-  * @return true, if human detected
-  * @return false, if human not detected 
-  */
-    bool detect_human();
+// variable to store the robot namespace
+  std::string namespace_;
+// variable to store the robot waypoint
+  Pose waypoint_;
 
-    /**
-     * @brief subscribes to camera topic and converts ros img to opencv img
-     * 
-     * @param img_msg 
-     */
-    void img_callback(const sensor_msgs::ImageConstPtr& img_msg);
+  // variable to store the robot fire exit location
+  Pose fire_exit_;
 
- private:
-    ros::NodeHandle nh_;
-    cv::Mat opencv_img_;
-    std::vector<RescuePoint> rescue_points_;
-    std::string camera_topic_;
-    Navigation navigate_;
-    std::unique_ptr<acme::Detector> human_detector_;
-    ros::Subscriber img_sub_;
+  // variable to store the robot destination
+  Pose destination_;
 
+  // variable to store the robot send goal status
+  bool send_goal_state_;
+
+  // variable to store the robot mission status
+  bool mission_accomplished_;
+
+  // variable to store the robot home location
+  Pose home_location_;
+
+  // variable to store the robot mission count
+  int mission_count_;
 };
 
-#endif  // INCLUDE_FINDERBOT_HPP_
+#endif  // INCLUDE_PROJECT_FINDER_FINDERBOT_HPP_

@@ -1,0 +1,443 @@
+<launch>
+
+<!--Launch Gazebo-->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find project_finder)/worlds/my_office.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+<!--TurtleBot3 description from URDF-->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_waffle.urdf.xacro" />
+
+<!--Robot 1-->
+  <group ns="robot1">
+    <param name="tf_prefix" value="robot1_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+       <arg name="init_pose" value="-x 6 -y -9 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot1" />
+    </include>
+  </group>
+
+
+<!-- Robot 2-->
+  <group ns="robot2">
+      <param name="tf_prefix" value="robot2_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 6 -y -8 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot2" />
+    </include>
+  </group>
+
+  <!--Robot 3-->
+  <group ns="robot3">
+    <param name="tf_prefix" value="robot3_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 6 -y -7 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot3" />
+    </include>
+  </group>
+
+<!-- Robot 4-->
+  <group ns="robot4">
+      <param name="tf_prefix" value="robot4_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 6 -y -6 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot4" />
+    </include>
+  </group>
+
+
+  <!-- Robot 5-->
+  <group ns="robot5">
+      <param name="tf_prefix" value="robot5_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 7 -y -9 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot5" />
+    </include>
+  </group>
+
+  <!--Robot 6-->
+  <group ns="robot6">
+    <param name="tf_prefix" value="robot6_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+       <arg name="init_pose" value="-x 7 -y -8 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot6" />
+    </include>
+  </group>
+
+
+<!-- Robot 7-->
+  <group ns="robot7">
+      <param name="tf_prefix" value="robot7_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 7 -y -7 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot7" />
+    </include>
+  </group>
+
+  <!--Robot 8-->
+  <group ns="robot8">
+    <param name="tf_prefix" value="robot8_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 7 -y -6 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot8" />
+    </include>
+  </group>
+
+
+<!-- Robot 9-->
+  <group ns="robot9">
+      <param name="tf_prefix" value="robot9_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 8 -y -9 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot9" />
+    </include>
+  </group>
+
+  <!-- Robot 10-->
+  <group ns="robot10">
+      <param name="tf_prefix" value="robot10_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 8 -y -8 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot10" />
+    </include>
+  </group>
+
+  <!-- Robot 11-->
+  <group ns="robot11">
+      <param name="tf_prefix" value="robot11_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 8 -y -7 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot11" />
+    </include>
+  </group>
+
+  <!-- Robot 12-->
+  <group ns="robot12">
+      <param name="tf_prefix" value="robot12_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 8 -y -6 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot12" />
+    </include>
+  </group>
+
+
+
+
+
+  <!-- Robot 13-->
+  <group ns="robot13">
+      <param name="tf_prefix" value="robot13_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 9 -y -9 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot13" />
+    </include>
+  </group>
+
+  <!-- Robot 14-->
+  <group ns="robot14">
+      <param name="tf_prefix" value="robot14_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 9 -y -8 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot14" />
+    </include>
+  </group>
+
+  <!-- Robot 15-->
+  <group ns="robot15">
+      <param name="tf_prefix" value="robot15_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 9 -y -7 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot15" />
+    </include>
+  </group>
+
+  <!-- Robot 16-->
+  <group ns="robot16">
+      <param name="tf_prefix" value="robot16_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 9 -y -6 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot16" />
+    </include>
+  </group>
+
+
+
+
+  <!-- Robot 17-->
+  <group ns="robot17">
+      <param name="tf_prefix" value="robot17_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 10 -y -9 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot17" />
+    </include>
+  </group>
+
+  <!-- Robot 18-->
+  <group ns="robot18">
+      <param name="tf_prefix" value="robot18_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 10 -y -8 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot18" />
+    </include>
+  </group>
+
+  <!-- Robot 19-->
+  <group ns="robot19">
+      <param name="tf_prefix" value="robot19_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 10 -y -7 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot19" />
+    </include>
+  </group>
+
+  <!-- Robot 20-->
+  <group ns="robot20">
+      <param name="tf_prefix" value="robot20_tf" />
+    <include file="$(find project_finder)/launch/individual_robot.launch" >
+      <arg name="init_pose" value="-x 10 -y -6 -z 0 -Y 3.14" />
+      <arg name="robot_name"  value="robot20" />
+    </include>
+  </group>
+
+
+<!-- Navigation Stack-->
+  <!-- Run the map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find project_finder)/maps/my_office.yaml">
+    <param name="frame_id" value="map" />
+  </node>
+
+
+  <!-- Properties of each robot      -->
+  <!-- start amcl -->
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot1"/>
+    <arg name="initial_pose_x" value="6" />
+    <arg name="initial_pose_y" value="-9" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot2"/>
+    <arg name="initial_pose_x" value="6" />
+    <arg name="initial_pose_y" value="-8" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot3"/>
+    <arg name="initial_pose_x" value="6" />
+    <arg name="initial_pose_y" value="-7" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot4"/>
+    <arg name="initial_pose_x" value="6" />
+    <arg name="initial_pose_y" value="-6" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot5"/>
+    <arg name="initial_pose_x" value="7" />
+    <arg name="initial_pose_y" value="-9" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+    <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot6"/>
+    <arg name="initial_pose_x" value="7" />
+    <arg name="initial_pose_y" value="-8" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot7"/>
+    <arg name="initial_pose_x" value="7" />
+    <arg name="initial_pose_y" value="-7" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot8"/>
+    <arg name="initial_pose_x" value="7" />
+    <arg name="initial_pose_y" value="-6" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot9"/>
+    <arg name="initial_pose_x" value="8" />
+    <arg name="initial_pose_y" value="-9" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot10"/>
+    <arg name="initial_pose_x" value="8" />
+    <arg name="initial_pose_y" value="-8" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot11"/>
+    <arg name="initial_pose_x" value="8" />
+    <arg name="initial_pose_y" value="-7" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot12"/>
+    <arg name="initial_pose_x" value="8" />
+    <arg name="initial_pose_y" value="-6" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot13"/>
+    <arg name="initial_pose_x" value="9" />
+    <arg name="initial_pose_y" value="-9" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot14"/>
+    <arg name="initial_pose_x" value="9" />
+    <arg name="initial_pose_y" value="-8" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot15"/>
+    <arg name="initial_pose_x" value="9" />
+    <arg name="initial_pose_y" value="-7" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot16"/>
+    <arg name="initial_pose_x" value="9" />
+    <arg name="initial_pose_y" value="-6" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot17"/>
+    <arg name="initial_pose_x" value="10" />
+    <arg name="initial_pose_y" value="-9" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot18"/>
+    <arg name="initial_pose_x" value="10" />
+    <arg name="initial_pose_y" value="-8" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot19"/>
+    <arg name="initial_pose_x" value="10" />
+    <arg name="initial_pose_y" value="-7" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+  <include file="$(find project_finder)/launch/amcl.launch" >
+    <arg name="robot_name" value="robot20"/>
+    <arg name="initial_pose_x" value="10" />
+    <arg name="initial_pose_y" value="-6" />
+    <arg name="initial_pose_a" value="3.14" />
+  </include>
+
+
+  <!-- start move base-->
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot1"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot2"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot3"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot4"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot5"/>
+  </include>
+
+    <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot6"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot7"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot8"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot9"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot10"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot11"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot12"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot13"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot14"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot15"/>
+  </include>
+
+    <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot16"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot17"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot18"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot19"/>
+  </include>
+
+  <include file="$(find project_finder)/launch/move_base.launch" >
+  <arg name="robot_name" value="robot20"/>
+  </include>
+
+  <!-- Launch Rviz with custom config -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find project_finder)/rviz/navigation.rviz" />
+
+
+</launch>
