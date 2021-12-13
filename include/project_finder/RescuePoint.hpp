@@ -42,7 +42,8 @@
  * 
  */
 struct RescuePoint {
- RescuePoint (Pose waypoint, Pose fire_exit) : waypoint(waypoint), fire_exit(fire_exit) {}
+ RescuePoint (Pose waypoint, Pose fire_exit)
+  : waypoint(waypoint), fire_exit(fire_exit) {}
 
  ~RescuePoint() {}
 
