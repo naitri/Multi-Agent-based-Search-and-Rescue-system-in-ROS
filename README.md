@@ -22,6 +22,10 @@ Firefighters  all  over  the  world,  put  the  safety  of others  before  their
 ## Presentation 
 * Project FINDER presentation can be found [here](https://docs.google.com/presentation/d/1KdqD9iXE6J5zDkRmNgDRY7NPadIoZbQjSN5EO-4kMEs/edit?usp=sharing)
 
+
+## Video Presentaion
+* https://drive.google.com/file/d/1gQzq6BoNbDdOAPpOuSqOTfFVDBKSdtVl/view?usp=sharing
+
 ## Dependencies with licenses
 * OpenCV 4.5.0 (covered under the open-source Apache 2 License)
 * ROS Noetic 
