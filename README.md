@@ -17,8 +17,10 @@ Firefighters  all  over  the  world,  put  the  safety  of others  before  their
 * Project: Project Finder is search and rescue robot for hazardous environment
 * Overview of prosposed work, including risks, mitigation, timeline
 * UML and activity diagrams
-* Travis code coverage setup with Coveralls
 * Developer-level documentation
+
+## Presentation 
+* Project FINDER presentation can be found [here](https://docs.google.com/presentation/d/1KdqD9iXE6J5zDkRmNgDRY7NPadIoZbQjSN5EO-4kMEs/edit?usp=sharing)
 
 ## Dependencies with licenses
 * OpenCV 4.5.0 (covered under the open-source Apache 2 License)
@@ -43,17 +45,15 @@ Following the Agile Iterative Process for Development, we switch roles of driver
 
 ## Installation
 
-### Install TurtleBot3
+# Install Requirements
 ```
-cd ~/finderbot_ws/src
-git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git -b noetic-devel
-git clone https://github.com/ROBOTIS-GIT/turtlebot3.git -b noetic-devel
-git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git -b noetic-devel
-cd ~/finderbot_ws
-catkin_make
-source devel/setup.bash
+bash ros_requirements.bash
+run requirements.sh
 ```
-### Clone git repository
+
+
+# Clone git repository
+
 ```
 cd finderbot_ws/src
 git clone --recursive https://github.com/naitri/project_finder
@@ -67,10 +67,12 @@ source devel/setup.bash
 ```
 In terminal 1
 ```
+source devel/setup.bash
 roslaunch project_finder main.launch
 ```
 In terminal 2
 ```
+source devel/setup.bash
 rosrun project_finder finder
 ```
 ### Result
