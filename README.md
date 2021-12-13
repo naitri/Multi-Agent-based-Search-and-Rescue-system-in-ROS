@@ -79,7 +79,6 @@ In terminal 2
 source devel/setup.bash
 rosrun project_finder finder
 ```
-### Result
 
 
 
