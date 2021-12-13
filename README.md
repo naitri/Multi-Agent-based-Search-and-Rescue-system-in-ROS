@@ -41,8 +41,39 @@ Following the Agile Iterative Process for Development, we switch roles of driver
 * Cppcheck results can be found [here](https://github.com/mjoshi07/project_finder/blob/dev_phase2/results/cppcheck.txt)
 * Cpplint results can be found [here](https://github.com/mjoshi07/project_finder/blob/dev_phase2/results/cpplint.txt)
 
-## TODO after phase 2
-* spawn humans at the waypoints
-* fix map inversion when loading in rviz
-* action_server not returning true sometimes even after reaching the goal
-* add more unit test cases
+## Installation
+
+# Install TurtleBot3
+```
+cd ~/finderbot_ws/src
+git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git -b noetic-devel
+git clone https://github.com/ROBOTIS-GIT/turtlebot3.git -b noetic-devel
+git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git -b noetic-devel
+cd ~/finderbot_ws
+catkin_make
+source devel/setup.bash
+```
+# Clone git repository
+```
+cd finderbot_ws/src
+git clone --recursive https://github.com/naitri/project_finder
+```
+
+# Execution of code
+```
+cd ~/finderbot_ws/src
+catkin_make
+source devel/setup.bash
+```
+In terminal 1
+```
+roslaunch project_finder main.launch
+```
+In terminal 2
+```
+rosrun project_finder finder
+```
+
+
+
+
