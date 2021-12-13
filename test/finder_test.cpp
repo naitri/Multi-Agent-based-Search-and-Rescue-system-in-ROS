@@ -124,7 +124,7 @@ TEST(FinderBot, set_waypoint) {
     std::string ns = "awesome_robot1";
     FinderBot robot(ns);
     Pose waypoint(1.0, 1.0, 0.0);
-    ASSERT_NO_THROW(    robot.set_waypoint(waypoint));
+    ASSERT_NO_THROW(robot.set_waypoint(waypoint));
 }
 
 TEST(FinderBot, get_waypoint) {
@@ -150,7 +150,7 @@ TEST(FinderBot, set_fire_exit) {
     std::string ns = "awesome_robot1";
     FinderBot robot(ns);
     Pose fire_exit(1.0, 1.0, 0.0);
-    ASSERT_NO_THROW(    robot.set_waypoint(fire_exit));
+    ASSERT_NO_THROW(robot.set_waypoint(fire_exit));
 }
 
 TEST(FinderBot, get_fire_exit) {

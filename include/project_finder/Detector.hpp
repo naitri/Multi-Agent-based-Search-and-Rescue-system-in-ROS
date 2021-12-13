@@ -33,8 +33,8 @@
  */
 
 
-#ifndef INCLUDE_DETECTOR_HPP_
-#define INCLUDE_DETECTOR_HPP_
+#ifndef INCLUDE_PROJECT_FINDER_DETECTOR_HPP_
+#define INCLUDE_PROJECT_FINDER_DETECTOR_HPP_
 
 #include <memory>
 #include <vector>
@@ -209,4 +209,4 @@ class Detector {
         std::vector<cv::Mat> outputs_;
 };
 }  // namespace acme
-#endif  // INCLUDE_DETECTOR_HPP_
+#endif  // INCLUDE_PROJECT_FINDER_DETECTOR_HPP_

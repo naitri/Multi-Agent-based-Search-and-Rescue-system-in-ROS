@@ -33,8 +33,8 @@
  * 
  */
 
-#ifndef INCLUDE_NAVIGATION_HPP_
-#define INCLUDE_NAVIGATION_HPP_
+#ifndef INCLUDE_PROJECT_FINDER_NAVIGATION_HPP_
+#define INCLUDE_PROJECT_FINDER_NAVIGATION_HPP_
 
 
 #include <actionlib/client/simple_action_client.h>
@@ -64,7 +64,7 @@ class Navigation {
   * @brief Construct a new Navigation object
   * 
   */
-    explicit Navigation(ros::NodeHandle nh, std::vector<FinderBot>& robots);
+    explicit Navigation(ros::NodeHandle nh, const std::vector<FinderBot>& robots);
 
     /**
      * @brief Destroy the Navigation object
@@ -85,7 +85,7 @@ class Navigation {
      * @return move_base_msgs::MoveBaseGoal 
      */
     static move_base_msgs::MoveBaseGoal get_destination_goal(
-      std::shared_ptr<FinderBot>& robot);
+      const std::shared_ptr<FinderBot>& robot);
 
  private:
  /**
@@ -103,7 +103,7 @@ class Navigation {
    * @return true 
    * @return false 
    */
-   bool detect_human();
+    bool detect_human();
 
    /**
     * @brief check robot status and updates its destination
@@ -111,7 +111,7 @@ class Navigation {
     * @param robot_client unique pointer to the respective robot move base client
     * @param robot shared pointer to the FinderBot
     */
-   void update_robot(std::unique_ptr<MoveBaseClient>& robot_client,
+    void update_robot(std::unique_ptr<MoveBaseClient>& robot_client,
     std::shared_ptr<FinderBot>& robot);
 
     /**
@@ -121,17 +121,17 @@ class Navigation {
      * @param robot shared pointer to the FinderBot
      * @param robot_goal 
      */
-   void send_goal(std::unique_ptr<MoveBaseClient>& robot_client,
-    std::shared_ptr<FinderBot>& robot,  
-    move_base_msgs::MoveBaseGoal& robot_goal);
+    void send_goal(std::unique_ptr<MoveBaseClient>& robot_client,
+    std::shared_ptr<FinderBot>& robot,
+    const move_base_msgs::MoveBaseGoal& robot_goal);
 
     /**
      * @brief stops the execution if all robots have completed their tasks
      * 
-     * @return true 
-     * @return false 
+     * @return true
+     * @return false
      */
-   bool mission_impossible_complete();
+    bool mission_impossible_complete();
 
  private:
   // variables to store robots 1-20
@@ -185,4 +185,4 @@ class Navigation {
   cv::Mat opencv_img_;
 };
 
-#endif  // INCLUDE_NAVIGATION_HPP_
+#endif  // INCLUDE_PROJECT_FINDER_NAVIGATION_HPP_\

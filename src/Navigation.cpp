@@ -32,13 +32,15 @@
  * @copyright Copyright (c) 2021
  * 
  */
+
 #include <project_finder/Navigation.hpp>
 
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction>
  MoveBaseClient;
 
-Navigation::Navigation(ros::NodeHandle nh, std::vector<FinderBot>& robots) {
+Navigation::Navigation(ros::NodeHandle nh, const
+std::vector<FinderBot>& robots) {
     nh_ = nh;
 
     // initialize FinderBot robot 1-20
@@ -106,7 +108,7 @@ void Navigation::initialize_client(std::shared_ptr<FinderBot>& robot,
   }
 
 move_base_msgs::MoveBaseGoal Navigation::get_destination_goal(
-    std::shared_ptr<FinderBot>& robot) {
+    const std::shared_ptr<FinderBot>& robot) {
     // variable to store the robot goal location
     move_base_msgs::MoveBaseGoal robot_goal;
 
@@ -126,10 +128,11 @@ move_base_msgs::MoveBaseGoal Navigation::get_destination_goal(
 }
 
 void Navigation::send_goal(std::unique_ptr<MoveBaseClient>& robot_client,
-std::shared_ptr<FinderBot>& robot,  move_base_msgs::MoveBaseGoal& robot_goal) {
-
-    // check if send goal command has not been sent and if robot mission is incomplete
-    if(!robot->get_send_goal_state() && !robot->get_mission_status()) {
+std::shared_ptr<FinderBot>& robot, const
+move_base_msgs::MoveBaseGoal& robot_goal) {
+    // check if send goal command has not been sent
+    // and if robot mission is incomplete
+    if (!robot->get_send_goal_state() && !robot->get_mission_status()) {
         // send goal to the robot
         robot_client->sendGoal(robot_goal);
 
@@ -139,7 +142,7 @@ std::shared_ptr<FinderBot>& robot,  move_base_msgs::MoveBaseGoal& robot_goal) {
 }
 
 bool Navigation::detect_human() {
-    try{
+    try {
         // create an empty img
         cv::Mat empty_img;
         // perform human detection
@@ -174,11 +177,11 @@ void Navigation::update_robot(std::unique_ptr<MoveBaseClient>& robot_client,
                 ROS_INFO_STREAM(robot_ns+" RESCUED HUMAN");
                 // update robot destination to the fire exit location
                 robot->update_destination(robot->get_fire_exit());
-            } else { // since human not found or human detection failed
+            } else {
+                // since human not found or human detection failed
                 // print message that robot did not find human
                 // robot going back to home locaiton
-                ROS_WARN_STREAM(robot_ns+" DID NOT FIND ANY HUMAN,
-                 GOING BACK TO HOME");
+                ROS_WARN_STREAM(robot_ns + " found no human, GOING BACK HOME");
                 // update robot destination to its home location
                 robot->update_destination(robot->get_home_location());
             }
@@ -206,9 +209,9 @@ void Navigation::update_robot(std::unique_ptr<MoveBaseClient>& robot_client,
 
 bool Navigation::mission_impossible_complete() {
     // STOP the execution if all robots mission status is true
-    if(robot1_->get_mission_status() && robot2_->get_mission_status() && 
+    if (robot1_->get_mission_status() && robot2_->get_mission_status() &&
     robot3_->get_mission_status()  && robot5_->get_mission_status() &&
-    robot6_->get_mission_status() && robot7_->get_mission_status() && 
+    robot6_->get_mission_status() && robot7_->get_mission_status() &&
     robot8_->get_mission_status()  && robot9_->get_mission_status() &&
     robot10_->get_mission_status()) {
         return true;
@@ -239,7 +242,7 @@ void Navigation::move_bots() {
     move_base_msgs::MoveBaseGoal robot19_goal;
     move_base_msgs::MoveBaseGoal robot20_goal;
 
-    while(ros::ok()) {
+    while ( ros::ok() ) {
         // get robot goal destination
         robot1_goal = get_destination_goal(robot1_);
         robot2_goal = get_destination_goal(robot2_);

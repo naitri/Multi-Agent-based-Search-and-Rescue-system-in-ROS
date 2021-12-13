@@ -3,8 +3,5 @@ Done processing ./src/Detector.cpp
 Done processing ./src/FinderBot.cpp
 Done processing ./src/Navigation.cpp
 Done processing ./src/main.cpp
-Done processing ./src/src/Detector.cpp
-Done processing ./src/src/FinderBot.cpp
-Done processing ./src/src/Navigation.cpp
-Done processing ./src/src/main.cpp
 Done processing ./test/finder_test.cpp
+

@@ -32,16 +32,12 @@
  * @copyright Copyright (c) 2021
  * 
  */
-
+#include <ros/ros.h>
 #include <project_finder/FinderBot.hpp>
 #include <project_finder/Navigation.hpp>
-#include <ros/ros.h>
-
-
 
 int main(int argc, char** argv) {
     ros::init(argc, argv, "finder_bot");
-    
     // set robot namespaces
     std::string robot1_ns = "robot1";
     std::string robot2_ns = "robot2";
@@ -156,12 +152,13 @@ int main(int argc, char** argv) {
 
 
     std::vector<FinderBot> robots = {robot1, robot2, robot3, robot4,
-     robot5, robot6, robot7, robot8, robot9, robot10, robot11, robot12, robot13, robot14,
+     robot5, robot6, robot7, robot8, robot9, robot10, robot11,
+     robot12, robot13, robot14,
      robot15, robot16, robot17, robot18, robot19, robot20};
 
     ros::NodeHandle nh;
-    
-    // create Navigation class object and initialize with ros nodehandle and robots
+    // create Navigation class object and initialize
+    // with ros nodehandle and robots
     Navigation navigate(nh, robots);
 
     // call navigate move_base method
