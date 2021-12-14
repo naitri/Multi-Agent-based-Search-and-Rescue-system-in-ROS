@@ -13,6 +13,7 @@ sudo apt-get install x264 v4l-utils
 
 
 ### Download the model weights file
+cd data
 wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-tiny.weights
 cd ..
 
