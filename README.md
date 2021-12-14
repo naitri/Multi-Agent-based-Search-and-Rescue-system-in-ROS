@@ -12,6 +12,7 @@ A search and rescure bot which will detect humans in hazardous location and navi
 
 ## Overview
 Firefighters  all  over  the  world,  put  the  safety  of others  before  their  own.  But  still  they  are  not  equipped  with the latest tools and technology to combat the disastrous environment. By providing a better idea and map of the unknown environment, the firefighters can minimize the search time and can rescue or take necessary actions as quickly as possible to save human lives.Search and rescue  robots are  an upcoming type  of robots that can  work  along  with  the  firefighters  and  behave  as  the  first responder  to  any  situation.  They  would  search for  the  desired target,  rescue  if  possible  or  at  least  notify  the  location  of  the target to the team. We  propose  a  search  and  rescue  robot  which  could  work  in any indoor scenario. We  would also like to incorporate Acme Robotics state-of-the-art human detection and tracking module which  was  developed  by  us  last  year.  The  human  detection module  would  enhance  the  bot’s  capability  to  search  for humans in the environment because they are the desired target in  most  of  the  rescue  operations.  We  plan  to use  move_base for navigation, onboard LiDAR for dynamic obstacle avoidance and the RGB camera for human detection. Together  they  would  work  as  a  search  and  rescue  system. Testing  and  Simulation  would  be  done  on  ROS and  Gazebo with a single robot, which could be scaled to ‘N’ number of robots depending upon the environment size and other factors.
+![image](https://github.com/naitri/project_finder/blob/main/results/80X_Trim.gif)
 
 ## Deliverables
 * Project: Project Finder is search and rescue robot for hazardous environment
@@ -52,14 +53,14 @@ Following the Agile Iterative Process for Development, we switch roles of driver
 
 ## Installation
 
-# Install Requirements
+### Install Requirements
 ```
 bash ros_requirements.bash
 run requirements.sh
 ```
 
 
-# Clone git repository
+### Clone git repository
 
 ```
 cd finderbot_ws/src
@@ -82,7 +83,19 @@ In terminal 2
 source devel/setup.bash
 rosrun project_finder finder
 ```
+# Results
+* Command prompt output
+![image](https://github.com/naitri/project_finder/blob/main/results/result_result.png)
 
+
+# ROS Test
+* All the current 29 tests (gtest + rostest) for this projects are passing.
+```
+cd ~/finderbot_ws/src
+catkin_make
+catkin_make run_tests
+```
+![image](https://github.com/naitri/project_finder/blob/main/results/test.png)
 
 
 
