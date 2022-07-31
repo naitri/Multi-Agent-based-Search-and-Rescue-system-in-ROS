@@ -1,4 +1,5 @@
-# Project_Finder : Finding Individuals for Disaster and Emergency Response 
+# Multi-Agent-based-Search-and-Rescue-system-in-ROS
+## Project_Finder : Finding Individuals for Disaster and Emergency Response 
 A search and rescure bot which will detect humans in hazardous location and navigate them to nearest exit
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
